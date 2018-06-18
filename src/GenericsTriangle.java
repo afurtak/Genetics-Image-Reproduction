@@ -16,7 +16,7 @@ public class GenericsTriangle {
         a = new Vector2D(triangle.a);
         b = new Vector2D(triangle.b);
         c = new Vector2D(triangle.c);
-        color = new Color(triangle.color.getRGB());
+        color = new Color(triangle.color.getRed(), triangle.color.getGreen(), triangle.color.getBlue(), 128);
     }
 
     public GenericsTriangle() {
@@ -28,13 +28,35 @@ public class GenericsTriangle {
 
     public GenericsTriangle(int maxX, int maxY) {
         a = new Vector2D(RandomUtil.getRandomInt(0, maxX), RandomUtil.getRandomInt(0, maxY));
-        b = a.add(new Vector2D(RandomUtil.getRandomInt(10, 50), RandomUtil.getRandomInt(10, 50)));
-        c = a.add(new Vector2D(RandomUtil.getRandomInt(10, 50), RandomUtil.getRandomInt(10, 50)));
+        b = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
+        c = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
         color = new Color(RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), 128);
     }
 
     public void mutate() {
-        //TODO
+        int t = RandomUtil.getRandomInt(0, 3);
+        if (t == 0)
+            a = a.add(Vector2D.getNormalDistributedVector(10));
+        else if (t == 1)
+            b = b.add(Vector2D.getNormalDistributedVector(10));
+        else
+            c = c.add(Vector2D.getNormalDistributedVector(10));
+
+        if (RandomUtil.getRandom() < 0.5) {
+            int r = color.getRed() + (int)(RandomUtil.gaussRandom() * 255);
+            if (r < 0) r = 0;
+            if (r > 255) r = 255;
+
+            int g = color.getGreen() + (int)(RandomUtil.gaussRandom() * 255);
+            if (g < 0) g = 0;
+            if (g > 255) g = 255;
+
+            int b = color.getBlue() + (int)(RandomUtil.gaussRandom() * 255);
+            if (b < 0) b = 0;
+            if (b > 255) b = 255;
+
+            color = new Color(r, g, b, 128);
+        }
     }
 
     public int[] getPointsX() {
