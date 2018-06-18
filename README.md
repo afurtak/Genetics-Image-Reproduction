@@ -1,0 +1,1 @@
+Implementation of generics algorithm which reproduce given image using colorful triangles.
