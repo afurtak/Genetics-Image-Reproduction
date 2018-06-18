@@ -43,10 +43,6 @@ public class Chromosome {
         }
     }
 
-    public void show() {
-        new ImageWindow("chromosome", image);
-    }
-
     public double getRating(BufferedImage image) {
         if (rating == -1)
             rating = rate(image);
