@@ -32,4 +32,12 @@ public class Vector2D {
     public void setY(int y) {
         this.y = y;
     }
+
+    public static Vector2D getNormalDistributedVector(int scale) {
+        return new Vector2D((int)RandomUtil.gaussRandom() * scale, (int)RandomUtil.gaussRandom() * scale);
+    }
+
+    public Vector2D add(Vector2D vector) {
+        return new Vector2D(x + vector.x, y + vector.y);
+    }
 }
