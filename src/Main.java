@@ -1,10 +1,11 @@
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.Random;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        new MainWindow("lenna.png");
+        JFileChooser fileChooser = new JFileChooser();
+        int retVal = fileChooser.showOpenDialog(null);
+        if (retVal == JFileChooser.APPROVE_OPTION) {
+            new MainWindow(fileChooser.getSelectedFile());
+        }
     }
 }

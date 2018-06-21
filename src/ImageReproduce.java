@@ -10,9 +10,9 @@ public class ImageReproduce {
     private double bestSimilarity;
     private MainWindow window;
 
-    public ImageReproduce(String path, MainWindow window) {
+    public ImageReproduce(File file, MainWindow window) {
         try {
-            originalImage = ImageIO.read(new File(path));
+            originalImage = ImageIO.read(file);
         }
         catch (Exception e) {
             e.printStackTrace();

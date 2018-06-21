@@ -14,12 +14,12 @@ public class MainWindow extends JFrame {
     private ImagePanel currentImagePanel;
     private ImagePanel originalImagePanel;
 
-    ImageReproduce imageReproduce;
+    private ImageReproduce imageReproduce;
 
-    public MainWindow(String path) {
+    public MainWindow(File file) {
         super("Generics Image Reproduction");
         try {
-            originalImage = ImageIO.read(new File(path));
+            originalImage = ImageIO.read(file);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
 
         drawOriginalImage(originalImage);
 
-        imageReproduce = new ImageReproduce(path, this);
+        imageReproduce = new ImageReproduce(file, this);
         imageReproduce.reproduce(100, 45, 10, 0.1f);
     }
 
