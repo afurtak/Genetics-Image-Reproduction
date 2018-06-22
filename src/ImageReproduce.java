@@ -62,18 +62,10 @@ public class ImageReproduce {
                 }
             }
 
-            currentThreshold = getMutationThreshold(mutationThreshold, i);
+            currentThreshold *= 0.9999;
+            if (currentThreshold < 0.02f)
+                currentThreshold = 0.02f;
         }
     }
 
-    private float getMutationThreshold(float mutationThreshold, int i) {
-        if (i < 350)
-            return mutationThreshold;
-        if (i < 700)
-            return mutationThreshold * 0.5f;
-        if (i < 1000)
-            return mutationThreshold * 0.02f;
-        else
-            return mutationThreshold * 0.1f;
-    }
 }
