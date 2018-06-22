@@ -12,6 +12,6 @@ public class RandomUtil {
     }
 
     public static double gaussRandom() {
-        return random.nextGaussian() * 2 - 1;
+        return random.nextGaussian();
     }
 }
