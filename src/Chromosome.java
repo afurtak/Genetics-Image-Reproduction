@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 public class Chromosome {
 
     private BufferedImage image;
-    private GenericsTriangle[] triangles;
+    private GeneticsTriangle[] triangles;
     private double rating;
 
     public Chromosome(int numberOfPieces, int width, int height) {
-        triangles = new GenericsTriangle[numberOfPieces];
+        triangles = new GeneticsTriangle[numberOfPieces];
         for (int i = 0; i < numberOfPieces; i++) {
-            triangles[i] = new GenericsTriangle(width, height);
+            triangles[i] = new GeneticsTriangle(width, height);
         }
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         rating = -1;
@@ -18,14 +18,14 @@ public class Chromosome {
     }
 
     public Chromosome(Chromosome parent1, Chromosome parent2, float mutationThreshold, int mutationSize) {
-        triangles = new GenericsTriangle[parent1.triangles.length];
+        triangles = new GeneticsTriangle[parent1.triangles.length];
 
         for (int i = 0; i < triangles.length; i++) {
 
             if (RandomUtil.getRandom() < .5)
-                triangles[i] = new GenericsTriangle(parent1.triangles[i]);
+                triangles[i] = new GeneticsTriangle(parent1.triangles[i]);
             else
-                triangles[i] = new GenericsTriangle(parent2.triangles[i]);
+                triangles[i] = new GeneticsTriangle(parent2.triangles[i]);
 
             if (RandomUtil.getRandom() < mutationThreshold)
                 triangles[i].mutate(mutationSize);
@@ -37,7 +37,7 @@ public class Chromosome {
 
     private void draw() {
         Graphics g = image.getGraphics();
-        for (GenericsTriangle triangle : triangles) {
+        for (GeneticsTriangle triangle : triangles) {
             g.setColor(triangle.getColor());
             g.fillPolygon(triangle.getPointsX(), triangle.getPointsY(), 3);
         }

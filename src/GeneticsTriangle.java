@@ -1,12 +1,12 @@
 import java.awt.*;
 
-public class GenericsTriangle {
+public class GeneticsTriangle {
 
     private Vector2D a, b, c;
     private Color color;
     private int maxX, maxY;
 
-    public GenericsTriangle(GenericsTriangle triangle) {
+    public GeneticsTriangle(GeneticsTriangle triangle) {
         a = new Vector2D(triangle.a);
         b = new Vector2D(triangle.b);
         c = new Vector2D(triangle.c);
@@ -15,7 +15,7 @@ public class GenericsTriangle {
         maxY = triangle.maxY;
     }
 
-    public GenericsTriangle(int maxX, int maxY) {
+    public GeneticsTriangle(int maxX, int maxY) {
         a = new Vector2D(RandomUtil.getRandomInt(0, maxX), RandomUtil.getRandomInt(0, maxY));
         b = a.add(new Vector2D(RandomUtil.getRandomInt(-10, 10), RandomUtil.getRandomInt(-10, 10)));
         c = a.add(new Vector2D(RandomUtil.getRandomInt(-10, 10), RandomUtil.getRandomInt(-10, 10)));
