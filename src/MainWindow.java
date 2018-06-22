@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements ImageReproduceBuffer {
 
     private static final int MARGIN = 30;
 
@@ -30,13 +30,14 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(null);
 
-        drawOriginalImage(originalImage);
+        updateOriginalImage(originalImage);
 
         imageReproduce = new ImageReproduce(file, this);
         imageReproduce.reproduce(200, 45, 10, 0.1f, 10);
     }
 
-    public void drawOriginalImage(BufferedImage image) {
+    @Override
+    public void updateOriginalImage(BufferedImage image) {
         if (originalImagePanel == null) {
             originalImagePanel = new ImagePanel(image);
             originalImagePanel.setBounds(MARGIN / 3, MARGIN / 3, originalImage.getWidth(), originalImage.getHeight());
@@ -47,7 +48,8 @@ public class MainWindow extends JFrame {
         originalImagePanel.repaint(image);
     }
 
-    public void drawCurrentImage(BufferedImage image) {
+    @Override
+    public void updateCurrentImage(BufferedImage image) {
         if (currentImagePanel == null) {
             currentImagePanel = new ImagePanel(image);
             currentImagePanel.setBounds((2 * MARGIN) / 3 + originalImage.getWidth(),  MARGIN / 3, originalImage.getWidth(), originalImage.getHeight());
@@ -57,7 +59,8 @@ public class MainWindow extends JFrame {
         currentImagePanel.repaint(image);
     }
 
-    public void drawBestImage(BufferedImage image) {
+    @Override
+    public void updateBestImage(BufferedImage image) {
         if (bestImagePanel == null) {
             bestImagePanel = new ImagePanel(image);
             bestImagePanel.setBounds((3 * MARGIN) / 3 + 2 * originalImage.getWidth(), MARGIN / 3, originalImage.getWidth(), originalImage.getHeight());

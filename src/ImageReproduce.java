@@ -8,9 +8,9 @@ public class ImageReproduce {
 
     private BufferedImage originalImage;
     private double bestSimilarity;
-    private MainWindow window;
+    private ImageReproduceBuffer buffer;
 
-    public ImageReproduce(File file, MainWindow window) {
+    public ImageReproduce(File file, ImageReproduceBuffer buffer) {
         try {
             originalImage = ImageIO.read(file);
         }
@@ -18,7 +18,7 @@ public class ImageReproduce {
             e.printStackTrace();
         }
 
-        this.window = window;
+        this.buffer = buffer;
     }
 
     public void reproduce(int numberOfPieces, int numberOfMembers, int numberOfTopMembers, float mutationThreshold, int mutationSize) {
@@ -31,7 +31,12 @@ public class ImageReproduce {
         }
 
         for (int i = 0; true; i++) {
-            Arrays.sort(members, (o1, o2) -> (o1.getRating(originalImage) < o2.getRating(originalImage) ? 1 : -1));
+            Arrays.sort(members, (o1, o2) -> {
+                if (o1.getRating(originalImage) == o2.getRating(originalImage))
+                    return 0;
+                else
+                    return (o1.getRating(originalImage) < o2.getRating(originalImage) ? 1 : -1);
+            });
             Chromosome[] top = new Chromosome[numberOfTopMembers];
             System.arraycopy(members, 0, top, 0, numberOfTopMembers);
 
@@ -41,12 +46,12 @@ public class ImageReproduce {
                     "           worst:  " + top[top.length - 1].getRating(originalImage));
             System.out.println("mutation probability: " + currentThreshold * 100 + "%");
 
-            window.drawCurrentImage(top[0].getImage());
+            buffer.updateCurrentImage(top[0].getImage());
 
             double currentSimilarity = top[0].getRating(originalImage);
             if (bestSimilarity < currentSimilarity) {
                 bestSimilarity = currentSimilarity;
-                window.drawBestImage(top[0].getImage());
+                buffer.updateBestImage(top[0].getImage());
             }
 
             int index = 0;
