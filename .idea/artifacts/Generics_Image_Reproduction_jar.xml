@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Generics Image Reproduction:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Generics_Image_Reproduction_jar</output-path>
+    <root id="archive" name="Generics Image Reproduction.jar">
+      <element id="module-output" name="Generics Image Reproduction" />
+    </root>
+  </artifact>
+</component>

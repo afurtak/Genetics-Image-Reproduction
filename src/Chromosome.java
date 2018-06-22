@@ -30,7 +30,7 @@ public class Chromosome {
             if (RandomUtil.getRandom() < mutationThreshold)
                 triangles[i].mutate();
         }
-        image = new BufferedImage(parent1.image.getWidth(), parent1.image.getWidth(), BufferedImage.TYPE_INT_ARGB);
+        image = new BufferedImage(parent1.image.getWidth(), parent1.image.getHeight(), BufferedImage.TYPE_INT_ARGB);
         rating = -1;
         draw();
     }
