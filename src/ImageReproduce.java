@@ -23,6 +23,7 @@ public class ImageReproduce {
 
     public void reproduce(int numberOfPieces, int numberOfMembers, int numberOfTopMembers, float mutationThreshold, int mutationSize) {
         bestSimilarity = 0;
+        float currentThreshold = mutationThreshold;
         Chromosome[] members = new Chromosome[numberOfMembers];
         for (int i = 0; i < numberOfMembers; i++) {
             members[i] = new Chromosome(numberOfPieces, originalImage.getWidth(), originalImage.getHeight());
@@ -38,7 +39,7 @@ public class ImageReproduce {
             System.out.println("rate: \n" +
                     "            best:  " + top[0].getRating(originalImage) + "\n" +
                     "           worst:  " + top[top.length - 1].getRating(originalImage));
-            System.out.println("mutation probability: " + mutationThreshold * 100 + "%");
+            System.out.println("mutation probability: " + currentThreshold * 100 + "%");
 
             window.drawCurrentImage(top[0].getImage());
 
@@ -51,14 +52,23 @@ public class ImageReproduce {
             int index = 0;
             for (int j = 0; j < numberOfTopMembers && index < numberOfMembers; j++) {
                 for (int k = j; k < numberOfTopMembers && index < numberOfMembers; k++) {
-                    members[index] = new Chromosome(top[j], top[k], mutationThreshold, mutationSize);
+                    members[index] = new Chromosome(top[j], top[k], currentThreshold, mutationSize);
                     index++;
                 }
             }
 
-            mutationThreshold *= 0.9999;
-            if (mutationThreshold < 0.01)
-                mutationThreshold = 0.01f;
+            currentThreshold = getMutationThreshold(mutationThreshold, i);
         }
+    }
+
+    private float getMutationThreshold(float mutationThreshold, int i) {
+        if (i < 350)
+            return mutationThreshold;
+        if (i < 700)
+            return mutationThreshold * 0.5f;
+        if (i < 1000)
+            return mutationThreshold * 0.02f;
+        else
+            return mutationThreshold * 0.1f;
     }
 }

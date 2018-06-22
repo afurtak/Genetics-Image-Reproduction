@@ -17,8 +17,8 @@ public class GenericsTriangle {
 
     public GenericsTriangle(int maxX, int maxY) {
         a = new Vector2D(RandomUtil.getRandomInt(0, maxX), RandomUtil.getRandomInt(0, maxY));
-        b = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
-        c = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
+        b = a.add(new Vector2D(RandomUtil.getRandomInt(-10, 10), RandomUtil.getRandomInt(-10, 10)));
+        c = a.add(new Vector2D(RandomUtil.getRandomInt(-10, 10), RandomUtil.getRandomInt(-10, 10)));
         color = new Color(RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), 128);
         this.maxX = maxX;
         this.maxY = maxY;
@@ -34,15 +34,15 @@ public class GenericsTriangle {
             c = c.add(Vector2D.getNormalDistributedVector(mutationSize, mutationSize));
 
         if (RandomUtil.getRandom() < 0.5) {
-            int r = color.getRed() + (int)(RandomUtil.gaussRandom() * 255);
+            int r = color.getRed() + (int)(RandomUtil.gaussRandom() * mutationSize * 10);
             if (r < 0) r = 0;
             if (r > 255) r = 255;
 
-            int g = color.getGreen() + (int)(RandomUtil.gaussRandom() * 255);
+            int g = color.getGreen() + (int)(RandomUtil.gaussRandom() * mutationSize * 10);
             if (g < 0) g = 0;
             if (g > 255) g = 255;
 
-            int b = color.getBlue() + (int)(RandomUtil.gaussRandom() * 255);
+            int b = color.getBlue() + (int)(RandomUtil.gaussRandom() * mutationSize * 10);
             if (b < 0) b = 0;
             if (b > 255) b = 255;
 

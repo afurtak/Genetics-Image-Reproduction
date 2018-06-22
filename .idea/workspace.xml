@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30df326a-f9f8-4c2c-bf46-42b609d4991e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/RandomUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GenericsTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenericsTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageReproduce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageReproduce.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -40,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericsTriangle.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenericsTriangle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GenericsTriangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
               <folding>
                 <element signature="e#2055#2056#0" expanded="true" />
                 <element signature="e#2117#2118#0" expanded="true" />
@@ -60,8 +61,8 @@
       <file leaf-file-name="ImageReproduce.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageReproduce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="466">
+              <caret line="71" column="44" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,12 +152,12 @@
         <option value="$PROJECT_DIR$/src/Triangle.java" />
         <option value="$PROJECT_DIR$/src/ImageWindow.java" />
         <option value="$PROJECT_DIR$/src/Chromosome.java" />
-        <option value="$PROJECT_DIR$/src/ImageReproduce.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/Vector2D.java" />
-        <option value="$PROJECT_DIR$/src/GenericsTriangle.java" />
         <option value="$PROJECT_DIR$/src/RandomUtil.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/ImageReproduce.java" />
+        <option value="$PROJECT_DIR$/src/GenericsTriangle.java" />
       </list>
     </option>
   </component>
@@ -284,15 +285,15 @@
       <option name="presentableId" value="Default" />
       <updated>1529310562794</updated>
       <workItem from="1529619694766" duration="939000" />
-      <workItem from="1529669160290" duration="4506000" />
+      <workItem from="1529669160290" duration="6070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5445000" />
+    <option name="totallyTimeSpent" value="7009000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
@@ -564,16 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageReproduce.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RandomUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -589,17 +580,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GenericsTriangle.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageReproduce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="71" column="44" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
           <folding>
-            <element signature="e#2055#2056#0" expanded="true" />
-            <element signature="e#2117#2118#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
-            <element signature="e#2212#2213#0" expanded="true" />
-            <element signature="e#2243#2244#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -619,10 +612,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/GenericsTriangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+          <folding>
+            <element signature="e#2055#2056#0" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
+            <element signature="e#2150#2151#0" expanded="true" />
+            <element signature="e#2212#2213#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2271#2272#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
