@@ -21,7 +21,7 @@ public class ImageReproduce {
         this.window = window;
     }
 
-    public void reproduce(int numberOfPieces, int numberOfMembers, int numberOfTopMembers, float mutationThershold) {
+    public void reproduce(int numberOfPieces, int numberOfMembers, int numberOfTopMembers, float mutationThreshold, int mutationSize) {
         bestSimilarity = 0;
         Chromosome[] members = new Chromosome[numberOfMembers];
         for (int i = 0; i < numberOfMembers; i++) {
@@ -35,7 +35,10 @@ public class ImageReproduce {
             System.arraycopy(members, 0, top, 0, numberOfTopMembers);
 
             System.out.println("generation: " + i);
-            System.out.println("rate:       " + top[0].getRating(originalImage) + ", " + top[top.length - 1].getRating(originalImage));
+            System.out.println("rate: \n" +
+                    "            best:  " + top[0].getRating(originalImage) + "\n" +
+                    "           worst:  " + top[top.length - 1].getRating(originalImage));
+            System.out.println("mutation probability: " + mutationThreshold * 100 + "%");
 
             window.drawCurrentImage(top[0].getImage());
 
@@ -48,14 +51,14 @@ public class ImageReproduce {
             int index = 0;
             for (int j = 0; j < numberOfTopMembers && index < numberOfMembers; j++) {
                 for (int k = j; k < numberOfTopMembers && index < numberOfMembers; k++) {
-                    members[index] = new Chromosome(top[j], top[k], mutationThershold);
+                    members[index] = new Chromosome(top[j], top[k], mutationThreshold, mutationSize);
                     index++;
                 }
             }
 
-            mutationThershold *= 0.99999;
-            if (mutationThershold < 0.05)
-                mutationThershold = 0.05f;
+            mutationThreshold *= 0.9999;
+            if (mutationThreshold < 0.01)
+                mutationThreshold = 0.01f;
         }
     }
 }

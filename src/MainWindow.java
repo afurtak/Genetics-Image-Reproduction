@@ -33,7 +33,7 @@ public class MainWindow extends JFrame {
         drawOriginalImage(originalImage);
 
         imageReproduce = new ImageReproduce(file, this);
-        imageReproduce.reproduce(100, 45, 10, 0.1f);
+        imageReproduce.reproduce(200, 45, 10, 0.1f, 10);
     }
 
     public void drawOriginalImage(BufferedImage image) {

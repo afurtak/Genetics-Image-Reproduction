@@ -4,12 +4,15 @@ public class GenericsTriangle {
 
     private Vector2D a, b, c;
     private Color color;
+    private int maxX, maxY;
 
     public GenericsTriangle(GenericsTriangle triangle) {
         a = new Vector2D(triangle.a);
         b = new Vector2D(triangle.b);
         c = new Vector2D(triangle.c);
         color = new Color(triangle.color.getRed(), triangle.color.getGreen(), triangle.color.getBlue(), 128);
+        maxX = triangle.maxX;
+        maxY = triangle.maxY;
     }
 
     public GenericsTriangle(int maxX, int maxY) {
@@ -17,16 +20,18 @@ public class GenericsTriangle {
         b = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
         c = a.add(new Vector2D(RandomUtil.getRandomInt(-50, 50), RandomUtil.getRandomInt(-50, 50)));
         color = new Color(RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), RandomUtil.getRandomInt(0, 255), 128);
+        this.maxX = maxX;
+        this.maxY = maxY;
     }
 
-    public void mutate() {
+    public void mutate(int mutationSize) {
         int t = RandomUtil.getRandomInt(0, 3);
         if (t == 0)
-            a = a.add(Vector2D.getNormalDistributedVector(10));
+            a = a.add(Vector2D.getNormalDistributedVector(mutationSize, mutationSize));
         else if (t == 1)
-            b = b.add(Vector2D.getNormalDistributedVector(10));
+            b = b.add(Vector2D.getNormalDistributedVector(mutationSize, mutationSize));
         else
-            c = c.add(Vector2D.getNormalDistributedVector(10));
+            c = c.add(Vector2D.getNormalDistributedVector(mutationSize, mutationSize));
 
         if (RandomUtil.getRandom() < 0.5) {
             int r = color.getRed() + (int)(RandomUtil.gaussRandom() * 255);

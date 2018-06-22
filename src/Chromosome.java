@@ -17,7 +17,7 @@ public class Chromosome {
         draw();
     }
 
-    public Chromosome(Chromosome parent1, Chromosome parent2, float mutationThreshold) {
+    public Chromosome(Chromosome parent1, Chromosome parent2, float mutationThreshold, int mutationSize) {
         triangles = new GenericsTriangle[parent1.triangles.length];
 
         for (int i = 0; i < triangles.length; i++) {
@@ -28,7 +28,7 @@ public class Chromosome {
                 triangles[i] = new GenericsTriangle(parent2.triangles[i]);
 
             if (RandomUtil.getRandom() < mutationThreshold)
-                triangles[i].mutate();
+                triangles[i].mutate(mutationSize);
         }
         image = new BufferedImage(parent1.image.getWidth(), parent1.image.getHeight(), BufferedImage.TYPE_INT_ARGB);
         rating = -1;
