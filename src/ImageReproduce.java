@@ -62,19 +62,21 @@ public class ImageReproduce {
                 }
             }
 
-            currentThreshold = getMutationThreshold(mutationThreshold, i);
+            currentThreshold = getMutationThreshold(mutationThreshold);
         }
     }
 
-    private float getMutationThreshold(float mutationThreshold, int i) {
-        if (i < 350)
-                return mutationThreshold;
-        if (i < 700)
-                return mutationThreshold * 0.7f;
-        if (i < 1000)
-                return mutationThreshold * 0.05f;
+    private float getMutationThreshold(float mutationThreshold) {
+        if (bestSimilarity < 70)
+            return mutationThreshold;
+        else if (bestSimilarity < 80)
+            return mutationThreshold * 0.9f;
+        else if (bestSimilarity < 90)
+            return mutationThreshold * 0.7f;
+        else if (bestSimilarity < 95)
+            return mutationThreshold * 0.5f;
         else
-            return mutationThreshold * 0.2f;
+            return mutationThreshold * 0.3f;
     }
 
 
